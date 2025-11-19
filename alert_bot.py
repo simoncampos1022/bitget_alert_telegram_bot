@@ -15,7 +15,7 @@ BITGET_TICKERS_URL = "https://api.bitget.com/api/v2/mix/market/tickers"
 BITGET_CANDLE_URL = "https://api.bitget.com/api/v2/mix/market/history-candles"
 PRODUCT_TYPE = "USDT-FUTURES"
 
-SYMBOLS = ["ETHUSDT", "SOLUSDT", "BNBUSDT", "LTCUSDT"]
+SYMBOLS = ["ETHUSDT", "SOLUSDT", "DOGEUSDT", "ZECUSDT", "HYPEUSDT"]
 INTERVAL = "1H"
 
 
