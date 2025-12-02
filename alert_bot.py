@@ -15,7 +15,7 @@ BITGET_TICKERS_URL = "https://api.bitget.com/api/v2/mix/market/tickers"
 BITGET_CANDLE_URL = "https://api.bitget.com/api/v2/mix/market/history-candles"
 PRODUCT_TYPE = "USDT-FUTURES"
 
-SYMBOLS = ["ETHUSDT", "SOLUSDT", "DOGEUSDT", "ZECUSDT", "HYPEUSDT"]
+SYMBOLS = ["ETHUSDT", "SOLUSDT", "TAOUSDT", "LINKUSDT", "UNIUSDT", "SUSHIUSDT"]
 INTERVAL = "1H"
 
 
@@ -180,7 +180,7 @@ def format_message(now: datetime, signals: Dict[str, Tuple[str, float, float]]) 
         # Price section with color based on change vs 1h ago
         if not (np.isnan(last_close) or np.isnan(prev_close)):
             price_color = green if last_close > prev_close else red if last_close < prev_close else ""  # neutral
-            price_text = f"{price_color} {last_close:,.2f}" if price_color else f"{last_close:,.2f}"
+            price_text = f"{price_color} {last_close:,.4f}" if price_color else f"{last_close:,.4f}"
         else:
             price_text = "N/A"
         lines_price.append(f"{sym}: {price_text}")
@@ -236,7 +236,7 @@ def format_price_only(now: datetime) -> str:
             ref_close = candles[-1]["close"]
         if not (np.isnan(current) or np.isnan(ref_close)):
             color = green if current > ref_close else red if current < ref_close else ""
-            price_text = f"{color} {current:,.2f}" if color else f"{current:,.2f}"
+            price_text = f"{color} {current:,.4f}" if color else f"{current:,.4f}"
         else:
             price_text = "N/A"
         lines_price.append(f"{sym}: {price_text}")
